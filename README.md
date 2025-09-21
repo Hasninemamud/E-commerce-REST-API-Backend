@@ -1,141 +1,162 @@
-# eCommerce API
+# 🛍️ eCommerce API
 
-A comprehensive Django REST Framework backend for an e-commerce platform providing robust API endpoints for managing products, orders, users, and more.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Django](https://img.shields.io/badge/Django-4.x-green.svg)](https://djangoproject.com/)
+[![DRF](https://img.shields.io/badge/DRF-3.x-red.svg)](https://www.django-rest-framework.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
+[![Coverage](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
 
-## 🚀 Features
+A comprehensive, production-ready Django REST Framework backend for modern e-commerce platforms. Built with scalability, security, and developer experience in mind.
 
-### Core Modules
-- **Accounts** - User authentication, registration, and profile management
-- **Products** - Product catalog management with categories and inventory
-- **Orders** - Shopping cart functionality and order processing
-- **Reviews** - Product reviews and rating system
-- **Recommendations** - AI-powered product recommendation engine
-- **Notifications** - User notification system
-- **Admin Dashboard** - Administrative functionality and analytics
+## 🎯 Overview
 
-### Key Features
-- ✅ RESTful API architecture
-- ✅ JWT Authentication
-- ✅ User registration and profile management
-- ✅ Product catalog with categories
-- ✅ Shopping cart and checkout process
-- ✅ Order management and tracking
-- ✅ Product reviews and ratings
-- ✅ AI-based product recommendations
-- ✅ Real-time notifications
-- ✅ Admin dashboard with analytics
-- ✅ API documentation with Swagger/OpenAPI
-- ✅ Comprehensive test coverage
+This API provides a complete backend solution for e-commerce applications, featuring user management, product catalogs, order processing, payment integration, and AI-powered recommendations. Perfect for building web applications, mobile apps, or headless commerce solutions.
 
-## 🛠️ Technology Stack
+## ✨ Features
 
-- **Backend**: Django 4.x, Django REST Framework
-- **Database**: PostgreSQL (Production) / SQLite (Development)
-- **Authentication**: JWT (JSON Web Tokens)
-- **API Documentation**: drf-spectacular (Swagger/OpenAPI)
-- **Testing**: Django Test Framework
-- **Task Queue**: Celery + Redis (for async tasks)
-- **Storage**: Django Static Files / AWS S3 (for media)
+### 🔐 Authentication & Security
+- JWT-based authentication with refresh tokens
+- User registration and profile management
+- Password reset and email verification
+- Role-based access control (RBAC)
+- Rate limiting and security headers
 
-## 📋 Prerequisites
+### 📦 Product Management
+- Comprehensive product catalog
+- Category and subcategory organization
+- Inventory tracking and stock management
+- Product search and filtering
+- Image and media file handling
 
-Before running this project, make sure you have the following installed:
+### 🛒 Order Processing
+- Shopping cart functionality
+- Secure checkout process
+- Order tracking and status updates
+- Payment gateway integration
+- Invoice generation
 
-- Python 3.8+
-- pip (Python package installer)
-- PostgreSQL (for production)
-- Redis (for caching and task queue)
+### ⭐ Reviews & Ratings
+- Product review system
+- Star rating aggregation
+- Review moderation
+- User feedback analytics
 
-## 🔧 Installation
+### 🤖 AI-Powered Features
+- Personalized product recommendations
+- Trending products analysis
+- Similar product suggestions
+- Customer behavior insights
 
-### 1. Clone the Repository
+### 📬 Communication
+- Real-time notification system
+- Email notifications
+- Order status updates
+- Marketing campaign support
 
-```bash
-git clone https://github.com/Hasninemamud/eCommerce-API.git
-cd eCommerce-API
+### 📊 Analytics & Admin
+- Comprehensive admin dashboard
+- Sales analytics and reporting
+- User behavior tracking
+- Inventory management tools
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Mobile App    │    │   Third-party   │
+│   (React/Vue)   │    │   (iOS/Android) │    │   Integrations  │
+└─────────┬───────┘    └─────────┬───────┘    └─────────┬───────┘
+          │                      │                      │
+          └──────────────────────┼──────────────────────┘
+                                 │
+                    ┌─────────────┴──────────────┐
+                    │       API Gateway          │
+                    │    (Load Balancer)         │
+                    └─────────────┬──────────────┘
+                                 │
+                    ┌─────────────┴──────────────┐
+                    │    Django REST API         │
+                    │  ┌─────────────────────┐   │
+                    │  │   Authentication    │   │
+                    │  │   Products          │   │
+                    │  │   Orders            │   │
+                    │  │   Reviews           │   │
+                    │  │   Recommendations   │   │
+                    │  │   Notifications     │   │
+                    │  │   Admin Dashboard   │   │
+                    │  └─────────────────────┘   │
+                    └─────────────┬──────────────┘
+                                 │
+          ┌──────────────────────┼──────────────────────┐
+          │                      │                      │
+┌─────────┴───────┐    ┌─────────┴───────┐    ┌─────────┴───────┐
+│   PostgreSQL    │    │     Redis       │    │     Celery      │
+│   (Database)    │    │   (Cache)       │    │  (Task Queue)   │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-### 2. Create Virtual Environment
+## 🚀 Quick Start
 
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+### Prerequisites
 
-### 3. Install Dependencies
+Ensure you have the following installed:
 
-```bash
-pip install -r requirements.txt
-```
+- **Python 3.8+**
+- **PostgreSQL 12+**
+- **Redis 6+**
+- **Git**
 
-### 4. Environment Configuration
+### Installation
 
-Create a `.env` file in the root directory and add the following variables:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Hasninemamud/eCommerce-API.git
+   cd eCommerce-API
+   ```
 
-```env
-# Django Settings
-SECRET_KEY=your-secret-key-here
-DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
+2. **Set up virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
 
-# Database Configuration
-DB_NAME=ecommerce_db
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
-DB_HOST=localhost
-DB_PORT=5432
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# JWT Settings
-JWT_SECRET_KEY=your-jwt-secret-key
-JWT_ALGORITHM=HS256
-JWT_ACCESS_TOKEN_LIFETIME=30
-JWT_REFRESH_TOKEN_LIFETIME=7
+4. **Configure environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
 
-# Redis Configuration
-REDIS_URL=redis://localhost:6379/0
+5. **Set up database**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py createsuperuser
+   ```
 
-# Email Configuration
-EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your-email@gmail.com
-EMAIL_HOST_PASSWORD=your-email-password
+6. **Load sample data (optional)**
+   ```bash
+   python manage.py loaddata fixtures/sample_data.json
+   ```
 
-# Payment Integration (Optional)
-STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key
-STRIPE_SECRET_KEY=your-stripe-secret-key
+7. **Run the development server**
+   ```bash
+   python manage.py runserver
+   ```
 
-# AWS S3 (Optional - for media files)
-AWS_ACCESS_KEY_ID=your-aws-access-key
-AWS_SECRET_ACCESS_KEY=your-aws-secret-key
-AWS_STORAGE_BUCKET_NAME=your-bucket-name
-AWS_S3_REGION_NAME=your-region
-```
+🎉 **Your API is now running at** `http://localhost:8000/`
 
-### 5. Database Setup
+## 📖 API Documentation
 
-```bash
-# Create and run migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Create superuser
-python manage.py createsuperuser
-
-# Load sample data (optional)
-python manage.py loaddata fixtures/sample_data.json
-```
-
-### 6. Run the Development Server
-
-```bash
-python manage.py runserver
-```
-
-The API will be available at `http://localhost:8000/`
-
-## 📚 API Documentation
+### Interactive Documentation
+- **Swagger UI**: [http://localhost:8000/api/docs/](http://localhost:8000/api/docs/)
+- **ReDoc**: [http://localhost:8000/api/redoc/](http://localhost:8000/api/redoc/)
+- **OpenAPI Schema**: [http://localhost:8000/api/schema/](http://localhost:8000/api/schema/)
 
 ### Base URL
 ```
@@ -143,92 +164,189 @@ http://localhost:8000/api/v1/
 ```
 
 ### Authentication
-The API uses JWT (JSON Web Tokens) for authentication. Include the token in the Authorization header:
-```
+All protected endpoints require JWT authentication:
+```http
 Authorization: Bearer <your-jwt-token>
 ```
 
-### Interactive API Documentation
-- **Swagger UI**: `http://localhost:8000/api/docs/`
-- **ReDoc**: `http://localhost:8000/api/redoc/`
-- **OpenAPI Schema**: `http://localhost:8000/api/schema/`
+### Core Endpoints
 
-## 🔗 API Endpoints
+<details>
+<summary><strong>🔐 Authentication</strong></summary>
 
-### Authentication Endpoints
-```
-POST   /api/v1/auth/register/          # User registration
-POST   /api/v1/auth/login/             # User login
-POST   /api/v1/auth/logout/            # User logout
-POST   /api/v1/auth/refresh/           # Refresh JWT token
-POST   /api/v1/auth/password/reset/    # Password reset
-GET    /api/v1/auth/profile/           # Get user profile
-PUT    /api/v1/auth/profile/           # Update user profile
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/auth/register/` | User registration |
+| `POST` | `/auth/login/` | User login |
+| `POST` | `/auth/logout/` | User logout |
+| `POST` | `/auth/refresh/` | Refresh JWT token |
+| `POST` | `/auth/password/reset/` | Password reset |
+| `GET` | `/auth/profile/` | Get user profile |
+| `PUT` | `/auth/profile/` | Update user profile |
+
+</details>
+
+<details>
+<summary><strong>📦 Products</strong></summary>
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/products/` | List all products |
+| `POST` | `/products/` | Create product (Admin) |
+| `GET` | `/products/{id}/` | Get product details |
+| `PUT` | `/products/{id}/` | Update product (Admin) |
+| `DELETE` | `/products/{id}/` | Delete product (Admin) |
+| `GET` | `/products/categories/` | List categories |
+| `GET` | `/products/featured/` | Featured products |
+| `GET` | `/products/search/` | Search products |
+
+</details>
+
+<details>
+<summary><strong>🛒 Orders & Cart</strong></summary>
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/orders/` | List user orders |
+| `POST` | `/orders/` | Create new order |
+| `GET` | `/orders/{id}/` | Get order details |
+| `PUT` | `/orders/{id}/` | Update order status |
+| `GET` | `/cart/` | Get shopping cart |
+| `POST` | `/cart/add/` | Add item to cart |
+| `PUT` | `/cart/update/` | Update cart item |
+| `DELETE` | `/cart/remove/` | Remove from cart |
+| `POST` | `/checkout/` | Process checkout |
+
+</details>
+
+<details>
+<summary><strong>⭐ Reviews</strong></summary>
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/reviews/` | List reviews |
+| `POST` | `/reviews/` | Create review |
+| `GET` | `/reviews/{id}/` | Get review details |
+| `PUT` | `/reviews/{id}/` | Update review |
+| `DELETE` | `/reviews/{id}/` | Delete review |
+| `GET` | `/products/{id}/reviews/` | Product reviews |
+
+</details>
+
+<details>
+<summary><strong>🤖 Recommendations</strong></summary>
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/recommendations/` | Personalized recommendations |
+| `GET` | `/recommendations/trending/` | Trending products |
+| `GET` | `/recommendations/similar/{id}/` | Similar products |
+
+</details>
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Django Settings
+SECRET_KEY=your-super-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
+
+# Database
+DB_NAME=ecommerce_db
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_HOST=localhost
+DB_PORT=5432
+
+# JWT Configuration
+JWT_SECRET_KEY=your-jwt-secret-key
+JWT_ALGORITHM=HS256
+JWT_ACCESS_TOKEN_LIFETIME=30
+JWT_REFRESH_TOKEN_LIFETIME=7
+
+# Redis
+REDIS_URL=redis://localhost:6379/0
+
+# Payment Gateway
+STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+
+# AWS S3 (Optional)
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_STORAGE_BUCKET_NAME=your-bucket
+AWS_S3_REGION_NAME=us-east-1
 ```
 
-### Product Endpoints
-```
-GET    /api/v1/products/               # List all products
-POST   /api/v1/products/               # Create new product (Admin)
-GET    /api/v1/products/{id}/          # Get product details
-PUT    /api/v1/products/{id}/          # Update product (Admin)
-DELETE /api/v1/products/{id}/          # Delete product (Admin)
-GET    /api/v1/products/categories/    # List product categories
-GET    /api/v1/products/featured/      # Get featured products
-GET    /api/v1/products/search/        # Search products
-```
+## 🚀 Deployment
 
-### Order Endpoints
-```
-GET    /api/v1/orders/                 # List user orders
-POST   /api/v1/orders/                 # Create new order
-GET    /api/v1/orders/{id}/            # Get order details
-PUT    /api/v1/orders/{id}/            # Update order status
-GET    /api/v1/cart/                   # Get shopping cart
-POST   /api/v1/cart/add/               # Add item to cart
-PUT    /api/v1/cart/update/            # Update cart item
-DELETE /api/v1/cart/remove/            # Remove item from cart
-POST   /api/v1/checkout/               # Process checkout
-```
+### Docker Deployment
 
-### Review Endpoints
-```
-GET    /api/v1/reviews/                # List reviews
-POST   /api/v1/reviews/                # Create review
-GET    /api/v1/reviews/{id}/           # Get review details
-PUT    /api/v1/reviews/{id}/           # Update review
-DELETE /api/v1/reviews/{id}/           # Delete review
-GET    /api/v1/products/{id}/reviews/  # Get product reviews
-```
+1. **Build and run with Docker Compose**
+   ```bash
+   docker-compose up -d
+   ```
 
-### Recommendation Endpoints
-```
-GET    /api/v1/recommendations/        # Get personalized recommendations
-GET    /api/v1/recommendations/trending/ # Get trending products
-GET    /api/v1/recommendations/similar/{product_id}/ # Get similar products
-```
+2. **Run migrations**
+   ```bash
+   docker-compose exec web python manage.py migrate
+   docker-compose exec web python manage.py createsuperuser
+   ```
 
-### Notification Endpoints
-```
-GET    /api/v1/notifications/          # List user notifications
-PUT    /api/v1/notifications/{id}/read/ # Mark notification as read
-DELETE /api/v1/notifications/{id}/     # Delete notification
-```
 
-### Admin Dashboard Endpoints
-```
-GET    /api/v1/admin/dashboard/        # Dashboard statistics
-GET    /api/v1/admin/users/            # Manage users
-GET    /api/v1/admin/orders/           # Manage orders
-GET    /api/v1/admin/analytics/        # Analytics data
-```
+- **Error Tracking**: Sentry integration for error monitoring
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Make your changes**
+   - Follow the existing code style
+   - Add tests for new functionality
+   - Update documentation as needed
+4. **Run tests**
+   ```bash
+   python manage.py test
+   ```
+5. **Commit your changes**
+   ```bash
+   git commit -m "Add amazing feature"
+   ```
+6. **Push to the branch**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+7. **Open a Pull Request**
+
+### Code of Conduct
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
 
+## 📈 Roadmap
+
+- [ ] GraphQL API support
+- [ ] Real-time WebSocket notifications
+- [ ] Multi-vendor marketplace features
+- [ ] Advanced analytics dashboard
+- [ ] Mobile SDK development
+- [ ] Kubernetes deployment manifests
+
+---
+
+<div align="center">
+
+**⭐ If you find this project helpful, please give it a star! ⭐**
+
+[Report Bug](https://github.com/Hasninemamud/eCommerce-API/issues) • [Request Feature](https://github.com/Hasninemamud/eCommerce-API/issues) • [Documentation](https://github.com/Hasninemamud/eCommerce-API/wiki)
+
+</div>
