@@ -1,9 +1,8 @@
-# E-commerce API
+# E-commerce REST API Backend
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Django](https://img.shields.io/badge/Django-4.x-green.svg)](https://djangoproject.com/)
 [![DRF](https://img.shields.io/badge/DRF-3.x-red.svg)](https://www.django-rest-framework.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen.svg)]()
 [![Coverage](https://img.shields.io/badge/Coverage-95%25-brightgreen.svg)]()
 
